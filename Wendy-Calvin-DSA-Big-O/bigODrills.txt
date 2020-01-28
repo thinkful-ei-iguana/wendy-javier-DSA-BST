@@ -1,0 +1,331 @@
+# DSA-Big-O
+
+## 1a. What is the Big O for doggy playdate.-- O(1)
+
+O(1) - it doesn't matter how many people are in the group. You are asking everyone at the same time.
+
+## 1b. What is the Big O for doggy playdate.-- O(n)
+
+O(n) the timing grows linearly as you are asking each person individually meaning the time spent increases the more people there are.
+
+## 2. Even or odd -- O(1)
+
+function isEven(value) {
+if (value % 2 == 0) {
+return true;
+}
+else
+return false;
+}
+}
+
+the function evaluates true or false for ONE value. 
+
+## 3. Are you here? - polynomial O(n^2)
+We are looping through the entire 2nd array for the number of times equal to the first array's length. i.e. if the 1st array = a length of 2 and the 2nd has a length of 10, then we are looping through the array of 10 and then again through the array of 10. 
+
+function areYouHere(arr1, arr2) {
+    for (let i = 0; i < arr1.length; i++) {
+        const el1 = arr1[i];
+        for (let j = 0; j < arr2.length; j++) {
+            const el2 = arr2[j];
+            if (el1 === el2) return true;
+        }
+    }
+    return false;
+}
+
+exArray = [
+  [1,2,3,4],
+  [11,12,13,14,15,16,17,18,19,20]
+]
+
+## 4. Doubler - O(n)
+What is the Big O of the following algorithm? Explain your answer
+
+function doubleArrayValues(array) {
+    for (let i = 0; i < array.length; i++) {
+        array[i] *= 2;
+    }
+    return array;
+}
+
+The complexity of the function grows linearly as the length of the array increases. 
+
+## 5. Naive search
+What is the Big O of the following algorithm? Explain your answer
+
+function naiveSearch(array, item) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === item) {
+            return i;
+        }
+    }
+}
+The complexity of the function is proportional to its input size. Same as above.
+
+## 6. Creating pairs: - O(n)
+What is the Big O of the following algorithm? Explain your answer
+
+function createPairs(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for(let j = i + 1; j < arr.length; j++) {
+            console.log(arr[i] + ", " +  arr[j] );
+        }
+    }
+}
+
+The complexity of the function is proportional to its input size. It takes one array to create a pair of numbers to console.log.  
+
+## 7. Compute the sequence: - O(log(n)) - Logarithmic Time
+What does the following algorithm do? What is its runtime complexity? Explain your answer
+
+function compute(num) {
+    let result = [];
+    for (let i = 1; i <= num; i++) {
+
+        if (i === 1) {
+            result.push(0);
+        }
+        else if (i == 2) {
+            result.push(1);
+        }
+        else {
+            result.push(result[i - 2] + result[i - 3]);
+        }
+    }
+    return result;
+}
+
+Every order of magnitude increase to input, output grows by a value of 3.
+
+
+## 8. An Efficient Search -  O(log(n)) - Logarithmic Time
+In this example, we return to the problem of searching using a more sophisticated approach than in naive search, above. 
+Assume that the input array is always sorted. What is the Big O of the following algorithm? Explain your answer
+
+function efficientSearch(array, item) {
+    let minIndex = 0;
+    let maxIndex = array.length - 1;
+    let currentIndex;
+    let currentElement;
+
+    while (minIndex <= maxIndex) {
+        currentIndex = Math.floor((minIndex + maxIndex) / 2);
+        currentElement = array[currentIndex];
+
+        if (currentElement < item) {
+            minIndex = currentIndex + 1;
+        }
+        else if (currentElement > item) {
+            maxIndex = currentIndex - 1;
+        }
+        else {
+            return currentIndex;
+        }
+    }
+    return -1;
+}
+
+The array is split into some fraction then processed in each iteration of a logarithmic algorithm
+
+
+
+## 9. Random element - O(1)
+What is the Big O of the following algorithm? Explain your answer
+
+function findRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+The complexity of this function is equal to a single run time operation. It runs once, selects its element, returns the element and is done with it's process.
+
+
+
+10. What Am I? - O(n) - Linear time
+What does the following algorithm do? What is the Big O of the following algorithm? Explain your answer
+
+function isWhat(n) {
+    if (7 < 2 || 7 % 1 != 0) {
+        return false;
+    }
+    for (let i = 2; i < 7; ++i) {
+        if (7 % i == 0) return false;
+    }
+    return true;
+}
+
+The complexity of this function is proportionally grown in tandem to its input.
+
+
+
+
+
+Derive an algorithm to solve the Tower of Hanoi puzzle.
+Implement your algorithm using recursion. Your program should display each movement of the disk from one rod to another.
+If you are given 5 disks, how do the rods look like after 7 recursive calls?
+How many moves are needed to complete the puzzle with 3 disks? with 4 disks? with 5 disks?
+What is the runtime of your algorithm?
+
+
+function TOH(n, source, temp, dest) {
+let source=[]
+let dest=[]
+let temp=[]
+
+// establishes an array for disk movement from rod to rod.
+for(i=1;i<n;i++) {
+    source.push(i)
+    let diskMove =;
+    let target = 
+}
+// evaluates if at dest
+if(dest.length === n) {
+    return;
+}
+// evaluates whether movement is valid
+if(diskMove > target) {
+    target.push(diskMove)
+}
+
+if(n===1){
+    console.log(source, dest)
+}
+TOH(n-1, source, temp, dest)
+3 rings is n=3
+
+}
+
+function print(a,b) {
+console.log(`moving disk ${a} to ${b})
+}
+
+TOH(1,A,B,C)
+
+
+recursive function to establish start and then determine movement and end point
+
+
+
+if(disk.value is > indexOf.value) {
+    diskMove=false
+    return `movement is not valid`
+}
+
+currentPoleValue (this is what helps logic through valid movements)
+
+n is the number of rings. n is an integer
+
+
+
+if ring value is greater than the target point it is a valid move.
+
+number of disks, each disk should have a sequentially increasing value
+disk value
+disk values on pole (source,dest,temp)
+valid disk movement check
+attempt to move disk (recursively check whether movement is valid, if so then move, if next movement is invalid decrement movement)
+
+
+
+
+
+if A=[1,2,3]
+A>C
+A=[2,3]
+A>B
+B=[2]
+A=3
+B=2
+C=1
+C>B
+C=[]
+B=[1,2]
+A=[3]
+A>C
+C=[3]
+A=[]
+B=[1,2]
+B>A
+B>C
+C=[2,3]
+A>C
+C=[1,2,3]
+
+
+
+if(A=6 then B or C are valid)
+if(A=6 then movement costs 1)
+if(A=5 then movement costs 2)
+if(A=3 then movement costs 3)
+
+
+
+
+Tower of Hanoi function runs and is scalable
+
+function TOH(n, source, dest, via) {
+  if (n >= 1) {
+
+    // Move a tower of n-1 to the buffer peg, using the destination peg.
+    TOH(n - 1, source, via, dest);
+
+    // Move the remaining disk to the destination peg.
+    console.log('Move disk from Tower ', source, ' to Tower ', dest);
+
+    // Move the tower of `n-1` from the `buffer peg` to the `destination peg` using the `source peg`.        
+    TOH(n - 1, via, dest, source);
+  }
+  
+  return;
+}
+
+TOH(3, "A", "C", "B");
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Counting Sheep
+Write a recursive function that counts how many sheep jump over the fence. Your program should take a number as input. That number should be the number of sheep you have. The function should display the number along with the message "Another sheep jumps over the fence" until no more sheep are left.
+
+Input: 3
+Output:
+3: Another sheep jumps over the fence
+2: Another sheep jumps over the fence
+1: Another sheep jumps over the fence
+All sheep jumped over the fence
+2. Power Calculator
+Write a function called powerCalculator() that takes two parameters, an integer as a base, and another integer as an exponent. The function returns the value of the base raised to the power of the exponent. Use only exponents greater than or equal to 0 (positive numbers)
+
+powerCalculator(10,2) should return 100
+powerCalculator(10,-2) should return exponent should be >= 0
+3. Reverse String
+Write a function that reverses a string. Take a string as input, reverse the string, and return the new string.
+
+4. nth Triangular Number
+Calculate the nth triangular number. A triangular number counts the objects that can form an equilateral triangle. The nth triangular number is the number of dots composing a triangle with n dots on a side, and is equal to the sum of the n natural numbers from 1 to n. This is the Triangular Number Sequence: 1, 3, 6, 10, 15, 21, 28, 36, 45.
+
+                          *
+            *           *    *
+*     |   *   *  |   *    *    *  |
+
+ 1st       2nd           3rd             nth?  
+5. String Splitter
+Write a recursive function that splits a string based on a separator (similar to String.prototype.split). Don't use JS array's split function to solve this problem.
+
+Input: 02/20/2020
+Output: ["02", "20", "2020"]
+6. Fibonacci
+Write a recursive function that prints the Fibonacci sequence of a given number. The Fibonacci sequence is a series of numbers in which each number is the sum of the 2 preceding numbers. For example, the 7th Fibonacci number in a Fibonacci sequence is 13. The sequence looks as follows: 1, 1, 2, 3, 5, 8, 13.
+
+7. Factorial
+Write a recursive function that finds the factorial of a given number. The factorial of a number can be found by multiplying that number by each number between itself and 1. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120.
